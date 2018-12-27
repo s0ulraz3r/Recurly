@@ -1,5 +1,5 @@
 <?php
-
+require_once('/var/www/html/recurly-client-php/lib/recurly/errors.php');
 class Recurly_ClientResponse
 {
   var $statusCode;

@@ -1,5 +1,7 @@
 <?php
 
+require_once('/var/www/html/recurly-client-php/lib/recurly/base.php');
+require_once('/var/www/html/recurly-client-php/lib/recurly/error_list.php');
 abstract class Recurly_Resource extends Recurly_Base
 {
   protected $_values;

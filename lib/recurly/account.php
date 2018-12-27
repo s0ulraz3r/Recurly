@@ -1,5 +1,7 @@
 <?php
-
+require_once('/var/www/html/recurly-client-php/lib/recurly/resource.php');
+require_once('/var/www/html/recurly-client-php/lib/recurly/address.php');
+require_once('/var/www/html/recurly-client-php/lib/recurly/custom_field_list.php');
 /**
  * Class Recurly_Account
  * @property Recurly_Stub $adjustments The URL of adjustments for the specified account.
@@ -8,6 +10,7 @@
  * @property Recurly_Stub $invoices The URL of invoices for the specified account.
  * @property Recurly_Stub $redemption The URL of the coupon redemption for the specified account.
  * @property Recurly_Stub $subscriptions The URL of subscriptions for the specified account.
+ * 
  * @property Recurly_Stub $transactions The URL of transactions for the specified account.
  * @property string $account_code The unique identifier of the account.
  * @property string $state The state of accounts to return: active or closed.

@@ -1,5 +1,5 @@
 <?php
-
+require_once ('vendor/phpunit/phpunit/src/Framework/TestCase.php');
 
 error_reporting(E_ALL);
 ini_set('display_errors','On');

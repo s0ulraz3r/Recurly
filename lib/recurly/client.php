@@ -1,5 +1,5 @@
 <?php
-
+require_once('/var/www/html/recurly-client-php/lib/recurly/response.php');
 /**
  * Recurly_Client provides methods for interacting with the {@link https://dev.recurly.com/docs/getting-started Recurly} API.
  *

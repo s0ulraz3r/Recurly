@@ -1,5 +1,5 @@
 <?php
-
+require_once('/var/www/html/recurly-client-php/lib/recurly/client.php');
 abstract class Recurly_Base
 {
   protected $_href;

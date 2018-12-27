@@ -1,4 +1,5 @@
 <?php
+// require_once ('vendor/phpunit/phpunit/src/Framework/TestCase.php');
 
 class Recurly_PurchaseTest extends Recurly_TestCase
 {
@@ -14,16 +15,26 @@ class Recurly_PurchaseTest extends Recurly_TestCase
     );
   }
 
+  /*
+'first_name', 'last_name', 'name_on_account', 'company', 'ip_address',
+      'address1', 'address2', 'city', 'state', 'country', 'zip', 'phone',
+      'vat_number', 'number', 'month', 'year', 'verification_value',
+      'account_number', 'routing_number', 'account_type',
+      'paypal_billing_agreement_id', 'amazon_billing_agreement_id', 'currency',
+      'token_id', 'external_hpp_type', 'gateway_token', 'gateway_code'
+  */
   public function mockPurchase() {
     $purchase = new Recurly_Purchase();
     $purchase->currency = 'USD';
-    $purchase->gateway_code = 'aBcD1234';
+    $purchase->gateway_code = 'k2x3yufu70q3';
     $purchase->collection_method = 'automatic';
     $purchase->customer_notes = 'Customer Notes';
     $purchase->terms_and_conditions = 'Terms and Conditions';
     $purchase->vat_reverse_charge_notes = 'VAT Reverse Charge Notes';
     $purchase->account = new Recurly_Account();
-    $purchase->account->account_code = 'aba9209a-aa61-4790-8e61-0a2692435fee';
+    $purchase->account->account_code = 'ONL711253';
+    $purchase->account->first_name = "TESt FN";
+    $purchase->account->last_name = "TESt LN";
     $purchase->account->address->phone = "555-555-5555";
     $purchase->account->address->email = "verena@example.com";
     $purchase->account->address->address1 = "123 Main St.";
@@ -33,26 +44,54 @@ class Recurly_PurchaseTest extends Recurly_TestCase
     $purchase->account->address->country = "US";
     $purchase->account->billing_info = new Recurly_BillingInfo();
     $purchase->account->billing_info->token_id = '7z6furn4jvb9';
+    // $purchase->account->billing_info->first_name = "";
+    // $purchase->account->billing_info->last_name = "";
+    // $purchase->account->billing_info->name_on_account = "";
+    // $purchase->account->billing_info->company = "";
+    // $purchase->account->billing_info->ip_address = "";
+    // $purchase->account->billing_info->address1 = "";
+    // $purchase->account->billing_info->city = "";
+    // $purchase->account->billing_info->state = "";
+    // $purchase->account->billing_info->country = "";
+    // $purchase->account->billing_info->zip = "";
+    // $purchase->account->billing_info->phone = "";
+    $purchase->account->billing_info->number = "4111-1111-1111-1111";
+    $purchase->account->billing_info->month = "12";
+    $purchase->account->billing_info->year = "2019";
+    $purchase->account->billing_info->verification_value = "123";
 
-    $shipping_address = new Recurly_ShippingAddress();
-    $shipping_address->first_name = 'Dolores';
-    $shipping_address->last_name = 'Du Monde';
-    $shipping_address->address1 = '400 Dolores St';
-    $shipping_address->city = 'San Francisco';
-    $shipping_address->state = 'CA';
-    $shipping_address->country = 'US';
-    $shipping_address->zip = '94110';
-    $shipping_address->nickname = 'Home';
-    $purchase->account->shipping_addresses = array($shipping_address);
 
-    $adjustment = new Recurly_Adjustment();
-    $adjustment->product_code = "abcd123";
-    $adjustment->unit_amount_in_cents = 1000;
-    $adjustment->currency = 'USD';
-    $adjustment->quantity = 1;
-    $adjustment->revenue_schedule_type = 'at_invoice';
 
-    $purchase->adjustments[] = $adjustment;
+    
+
+    // $shipping_address = new Recurly_ShippingAddress();
+    // $shipping_address->first_name = 'Dolores';
+    // $shipping_address->last_name = 'Du Monde';
+    // $shipping_address->address1 = '400 Dolores St';
+    // $shipping_address->city = 'San Francisco';
+    // $shipping_address->state = 'CA';
+    // $shipping_address->country = 'US';
+    // $shipping_address->zip = '94110';
+    // $shipping_address->nickname = 'Home';
+    // $purchase->account->shipping_addresses = array($shipping_address);
+
+
+
+
+    // $adjustment = new Recurly_Adjustment();
+    // $adjustment->product_code = "abcd123";
+    // $adjustment->unit_amount_in_cents = 1000;
+    // $adjustment->currency = 'USD';
+    // $adjustment->quantity = 1;
+    // $adjustment->revenue_schedule_type = 'at_invoice';
+
+    // $purchase->adjustments[] = $adjustment;
+
+    
+
+    $subscription = new Recurly_Subscription();
+    $subscription->plan_code = "monthly";
+    $purchase->account->subscriptions = array($subscription);
 
     return $purchase;
   }
